@@ -1,9 +1,18 @@
 {
   "name": "react-change",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "main": "dist/react-change.js",
+  "module": "src/react-change.js",
+  "exports": {
+    "import": "./src/react-change.mjs",
+    "require": "./dist/react-change.js"
+  },
   "scripts": {
     "prepublishOnly": "node build",
     "start": "node build watch"
+  },
+  "peerDependencies": {
+    "emerge": "^0.4"
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.54",

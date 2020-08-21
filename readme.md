@@ -4,7 +4,7 @@ Utility for `shouldComponentUpdate` in React and Preact. Deeply compares props a
 
 Intended for plain data structures such as `{}` and `[]`. Any other objects are compared by _reference_: `===`, not by structure.
 
-Has an unstated peer dependency on [Emerge](https://github.com/Mitranim/emerge) (3.5 KiB), a library for dealing with plain data structures mentioned above.
+Has a peer dependency on [Emerge](https://github.com/mitranim/emerge) (3.5 KiB), a library for dealing with plain data structures mentioned above.
 
 ## Why
 
@@ -16,33 +16,15 @@ Sticking this on all your classes is a no-brainer.
 
 ## Installation
 
-```js
-yarn add -E react-change
-# or
-npm i -E react-change
+```sh
+npm i react-change
 ```
 
 ## Usage
 
-React:
-
 ```js
 import {Component} from 'react'
-import {shouldComponentUpdate} from 'react-change/react'
-
-class ViewComponent extends Component {
-  shouldComponentUpdate() {return shouldComponentUpdate.apply(this, arguments)}
-}
-
-// Or
-ViewComponent.prototype.shouldComponentUpdate = shouldComponentUpdate
-```
-
-Preact:
-
-```js
-import {Component} from 'preact'
-import {shouldComponentUpdate} from 'react-change/preact'
+import {shouldComponentUpdate} from 'react-change'
 
 class ViewComponent extends Component {
   shouldComponentUpdate() {return shouldComponentUpdate.apply(this, arguments)}

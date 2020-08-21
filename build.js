@@ -8,7 +8,7 @@ const mkdirp = require('mkdirp')
 const pt = require('path')
 
 const SRC  = 'src'
-const DIST = 'dist'
+const DEST = 'dist'
 
 function main() {
   const cmd = process.argv[2]
@@ -25,14 +25,14 @@ function main() {
 }
 
 function clear() {
-  del.sync(DIST)
+  del.sync(DEST)
 }
 
 function build() {
   clear()
   const t0 = Date.now()
 
-  const paths = glob.sync(`${SRC}/**/*.js`)
+  const paths = glob.sync(`${SRC}/**/*.mjs`)
 
   for (const path of paths) {
     const {code} = babel.transformFileSync(path, {
@@ -41,10 +41,10 @@ function build() {
       ],
     })
 
-    const distPath = pt.join(DIST, pt.relative(SRC, path))
-    const distDir = pt.dirname(distPath)
-    if (distDir) mkdirp.sync(distDir)
-    fs.writeFileSync(distPath, code)
+    const destPath = pt.join(DEST, pt.relative(SRC, renameExtension(path, '.js')))
+    const destDir = pt.dirname(destPath)
+    if (destDir) mkdirp.sync(destDir)
+    fs.writeFileSync(destPath, code)
   }
 
   const t1 = Date.now()
@@ -62,6 +62,13 @@ function buildOrReport() {
   catch (err) {
     console.error(err)
   }
+}
+
+function renameExtension(path, ext) {
+  const parsed = pt.parse(path)
+  parsed.ext = ext
+  parsed.base = undefined
+  return pt.format(parsed)
 }
 
 main()
