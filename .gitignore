@@ -1,10 +1,8 @@
 /*
-!/.eslintrc
-!/.gitignore
-!/.npmignore
-!/build.js
+!/.*rc
+!/.*ignore
+!/*.mjs
+!/*.md
 !/package.json
-!/preact
-!/react
-!/readme.md
-!/src
+!/test*
+!/makefile

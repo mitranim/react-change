@@ -1,25 +1,10 @@
 {
   "name": "react-change",
-  "version": "0.2.1",
-  "main": "dist/react-change.js",
-  "module": "src/react-change.js",
-  "exports": {
-    "import": "./src/react-change.mjs",
-    "require": "./dist/react-change.js"
-  },
+  "version": "0.3.0",
+  "type": "module",
+  "main": "./react-change.mjs",
   "scripts": {
-    "prepublishOnly": "node build",
-    "start": "node build watch"
-  },
-  "peerDependencies": {
-    "emerge": "^0.5"
-  },
-  "devDependencies": {
-    "@babel/core": "7.0.0-beta.54",
-    "@babel/plugin-transform-modules-commonjs": "7.0.0-beta.54",
-    "babel-eslint": "8.2.3",
-    "emerge": "0.4.0",
-    "eslint_d": "5.3.1"
+    "prepublishOnly": "make prep"
   },
   "description": "Utility for `shouldComponentUpdate` in React and Preact. Deeply compares props and state to detect changes and avoid unnecessary renders.",
   "keywords": [
