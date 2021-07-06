@@ -35,6 +35,16 @@ class ViewComponent extends Component {
 
 You can stick this in a base class for all your components.
 
+## Changelog
+
+### 0.3.1
+
+Support equality for `Date` and `URL` objects.
+
+### 0.3.0
+
+Now dependency-free and provided as a native module.
+
 ## Misc
 
 I'm receptive to suggestions. If this library _almost_ satisfies you but needs changes, open an issue or chat me up. Contacts: https://mitranim.com/#contacts

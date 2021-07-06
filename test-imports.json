@@ -1,5 +1,6 @@
 {
   "imports": {
+    "assert": "https://deno.land/std@0.100.0/testing/asserts.ts",
     "preact": "https://cdn.jsdelivr.net/npm/preact@10.5.14/dist/preact.mjs",
     "preact/compat": "https://cdn.jsdelivr.net/npm/preact@10.5.14/compat/dist/compat.mjs",
     "preact/hooks": "https://cdn.jsdelivr.net/npm/preact@10.5.14/hooks/dist/hooks.mjs"

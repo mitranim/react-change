@@ -5,6 +5,8 @@ export function shouldComponentUpdate(props, state) {
 export function equal(a, b) {
   if (is(a, b)) return true
   if (isVirtElem(a)) return isVirtElem(b) && virtElemEqual(a, b)
+  if (isInst(a, Date)) return isInst(b, Date) && a.valueOf() === b.valueOf()
+  if (isInst(a, URL)) return isInst(b, URL) && a.href === b.href
   if (isArr(a)) return isArr(b) && arrEqual(a, b)
   if (isDict(a)) return isDict(b) && dictEqual(a, b)
   return false
@@ -49,6 +51,7 @@ function is(a, b) {return a === b || (isNaN(a) && isNaN(b))}
 function isNaN(val) {return val !== val}
 function isObj(val) {return val !== null && typeof val === 'object'}
 function isArr(val) {return isObj(val) && val instanceof Array}
+function isInst(val, Cls) {return isObj(val) && val instanceof Cls}
 
 function isDict(val) {
   if (!isObj(val)) return false
